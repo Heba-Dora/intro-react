@@ -1,5 +1,6 @@
 import React from "react";
 import Table from "./Table";
+import List from "./List"
 
 class App extends React.Component {
   constructor(props) {
@@ -41,6 +42,16 @@ class App extends React.Component {
 
   render() {
     let tabChoice = <div />;
+    if (this.state.buttonClicked === "assignments") {
+      tabChoice = (
+        <List
+          placeholder="Add Assignment..."
+          currList={this.state.assignments}
+          addFunction={this.addAssignment}
+          title="Assignments"
+        />
+      );
+    }
 
     return (
       <div>
